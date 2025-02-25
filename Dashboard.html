@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 text-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white hidden md:block">
+            <div class="p-6 text-xl font-bold text-center">Dashboard</div>
+            <nav>
+                <a href="#home" class="block px-6 py-3 hover:bg-blue-700 transition" onclick="showSection('home')">Home</a>
+                <a href="#analytics" class="block px-6 py-3 hover:bg-blue-700 transition" onclick="showSection('analytics')">Analytics</a>
+                <a href="#settings" class="block px-6 py-3 hover:bg-blue-700 transition" onclick="showSection('settings')">Settings</a>
+                <a href="#logout" class="block px-6 py-3 hover:bg-red-700 transition" onclick="showSection('logout')">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col p-6">
+            <!-- Top Navbar -->
+            <header class="bg-gray-800 shadow p-4 flex justify-between items-center text-white">
+                <div class="text-xl font-semibold">Dashboard</div>
+                <button class="md:hidden bg-blue-600 text-white px-4 py-2 rounded">☰</button>
+            </header>
+
+            <!-- Content Area -->
+            <main class="p-6 flex-1 bg-white text-gray-900 rounded-lg shadow">
+                <section id="home" class="content-section">
+                    <h2 class='text-2xl font-bold'>Welcome to the Dashboard</h2>
+                    <p>Select an option from the sidebar to navigate.</p>
+                </section>
+                <section id="analytics" class="content-section hidden">
+                    <h2 class='text-2xl font-bold'>Analytics</h2>
+                    <p>View analytics data and insights.</p>
+                </section>
+                <section id="settings" class="content-section hidden">
+                    <h2 class='text-2xl font-bold'>Settings</h2>
+                    <p>Modify your preferences and configurations.</p>
+                </section>
+                <section id="logout" class="content-section hidden">
+                    <h2 class='text-2xl font-bold'>Logout</h2>
+                    <p>You have been logged out successfully.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script> 
+</body>
+</html>
